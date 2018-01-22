@@ -251,6 +251,12 @@
             polygon.setMap(null);
             hideListings(markers);
           }
+
+          google.maps.event.addListener(drawingManager, 'polygoncomplete', function(polygon){
+              area = google.maps.geometry.spherical.computeArea (polygon.getPath());
+              alert(area + "Square Meters");
+          });
+
           // Switching the drawing mode to the HAND (i.e., no longer drawing).
           drawingManager.setDrawingMode(null);
           // Creating a new editable polygon from the overlay.
@@ -371,7 +377,7 @@
 
     <script async defer
         src=
-        "https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=MYAPIKEY&v=3&callback=initMap">
+        "https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=AIzaSyAPQUBSBQep6puO1Ot_1ZGaf1pG-i0X55c&v=3&callback=initMap">
     </script>
 
   </body>
